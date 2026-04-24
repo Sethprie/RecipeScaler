@@ -59,12 +59,12 @@ export default function RootLayout() {
     }
   }, [language, appIsReady]);
 
-  const onLayoutRootView = async () => {
+  useEffect(() => {
+    // Hide splash screen when app is ready and fonts are loaded
     if (appIsReady && fontsLoaded) {
-      // This tells the splash screen to hide immediately
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
-  };
+  }, [appIsReady, fontsLoaded]);
 
   if (!appIsReady || !fontsLoaded) {
     return (
@@ -75,7 +75,6 @@ export default function RootLayout() {
           alignItems: 'center',
           backgroundColor: '#FAF8F5', // lightColors.background
         }}
-        onLayout={onLayoutRootView}
       >
         <Text
           style={{
@@ -101,7 +100,7 @@ export default function RootLayout() {
   }
 
   return (
-    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+    <View style={{ flex: 1 }}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
