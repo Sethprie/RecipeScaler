@@ -1,0 +1,60 @@
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "back": "Volver",
+    "units": {
+      "kg": "kg",
+      "g": "g",
+      "ml": "ml",
+      "l": "l",
+      "cups": "tazas",
+      "tbsp": "cdas",
+      "tsp": "cditas",
+      "units": "unid."
+    }
+  },
+  "home": {
+    "title": "Mis Recetas",
+    "searchPlaceholder": "Buscar recetas...",
+    "emptyState": {
+      "title": "Todavía no tenés recetas",
+      "subtitle": "Tocá el botón + para crear tu primera fórmula"
+    }
+  },
+  "recipeDetail": {
+    "scaleButton": "Reescalar",
+    "ingredientsTitle": "Ingredientes",
+    "preparationTitle": "Preparación"
+  },
+  "scale": {
+    "title": "Reescalar",
+    "anchorLabel": "¿Cuánto {{ingredient}} vas a usar?",
+    "originalLabel": "Original",
+    "scaledLabel": "Reescalado",
+    "resetButton": "Resetear"
+  },
+  "create": {
+    "title": "Nueva Receta",
+    "namePlaceholder": "Nombre de la receta",
+    "addIngredient": "Agregar ingrediente",
+    "ingredientName": "Ingrediente",
+    "ingredientAmount": "Cantidad",
+    "ingredientUnit": "Unidad",
+    "preparationPlaceholder": "Pasos de preparación (opcional)...",
+    "tagsPlaceholder": "Tags (ej: pizza, pan)"
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "theme": "Tema",
+    "premium": {
+      "title": "RecipeScaler Premium",
+      "subtitle": "Sin anuncios, para siempre",
+      "button": "Obtener Premium"
+    },
+    "about": "Acerca de"
+  }
+}

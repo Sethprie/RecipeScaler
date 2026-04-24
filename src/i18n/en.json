@@ -1,0 +1,60 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "units": {
+      "kg": "kg",
+      "g": "g",
+      "ml": "ml",
+      "l": "l",
+      "cups": "cups",
+      "tbsp": "tbsp",
+      "tsp": "tsp",
+      "units": "units"
+    }
+  },
+  "home": {
+    "title": "My Recipes",
+    "searchPlaceholder": "Search recipes...",
+    "emptyState": {
+      "title": "No recipes yet",
+      "subtitle": "Tap the + button to create your first formula"
+    }
+  },
+  "recipeDetail": {
+    "scaleButton": "Scale",
+    "ingredientsTitle": "Ingredients",
+    "preparationTitle": "Preparation"
+  },
+  "scale": {
+    "title": "Scale",
+    "anchorLabel": "How much {{ingredient}} will you use?",
+    "originalLabel": "Original",
+    "scaledLabel": "Scaled",
+    "resetButton": "Reset"
+  },
+  "create": {
+    "title": "New Recipe",
+    "namePlaceholder": "Recipe name",
+    "addIngredient": "Add ingredient",
+    "ingredientName": "Ingredient",
+    "ingredientAmount": "Amount",
+    "ingredientUnit": "Unit",
+    "preparationPlaceholder": "Preparation steps (optional)...",
+    "tagsPlaceholder": "Tags (e.g: pizza, bread)"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "premium": {
+      "title": "RecipeScaler Premium",
+      "subtitle": "Ad-free, forever",
+      "button": "Get Premium"
+    },
+    "about": "About"
+  }
+}
