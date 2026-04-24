@@ -77,7 +77,15 @@ export const useSettingsStore = create<SettingsStore>()(
           // Load premium flag from separate key (for backward compatibility)
           const premiumStored = await AsyncStorage.getItem(PREMIUM_KEY);
           if (premiumStored) {
-            const isPremium = JSON.parse(premiumStored);
+            // Handle both JSON string and direct string values
+            let isPremium = false;
+            try {
+              // Try parsing as JSON first
+              isPremium = JSON.parse(premiumStored);
+            } catch {
+              // If JSON.parse fails, treat as direct string comparison
+              isPremium = premiumStored === 'true';
+            }
             set((state) => ({
               settings: { ...state.settings, isPremium },
             }));
