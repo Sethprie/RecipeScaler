@@ -5,6 +5,7 @@
     "delete": "Delete",
     "edit": "Edit",
     "back": "Back",
+    "selected": "Selected",
     "units": {
       "kg": "kg",
       "g": "g",
@@ -19,10 +20,18 @@
   "home": {
     "title": "My Recipes",
     "searchPlaceholder": "Search recipes...",
-    "emptyState": {
-      "title": "No recipes yet",
-      "subtitle": "Tap the + button to create your first formula"
-    }
+    "noRecipes": "No recipes yet",
+    "createFirstRecipe": "Tap the + to create your first formula",
+    "noResults": "No results",
+    "tryDifferentSearch": "Try a different search"
+  },
+  "recipe": {
+    "notFound": "Recipe not found",
+    "goBack": "Back",
+    "ingredients": "Ingredients",
+    "preparation": "Preparation",
+    "scale": "Scale",
+    "edit": "Edit"
   },
   "recipeDetail": {
     "scaleButton": "Scale",
@@ -31,30 +40,69 @@
   },
   "scale": {
     "title": "Scale",
-    "anchorLabel": "How much {{ingredient}} will you use?",
-    "originalLabel": "Original",
-    "scaledLabel": "Scaled",
-    "resetButton": "Reset"
+    "selectAnchor": "Select base ingredient",
+    "selectAnchorDescription": "The rest will scale proportionally",
+    "newAmount": "New amount",
+    "amountPlaceholder": "Enter the amount",
+    "scaleFactor": "Scale factor",
+    "scaledIngredients": "Result",
+    "reset": "Reset"
   },
   "create": {
     "title": "New Recipe",
     "namePlaceholder": "Recipe name",
     "addIngredient": "Add ingredient",
+    "remove": "Remove",
     "ingredientName": "Ingredient",
     "ingredientAmount": "Amount",
     "ingredientUnit": "Unit",
+    "recipeName": "Recipe name",
+    "recipeNamePlaceholder": "Ex: Pizza dough",
+    "ingredients": "Ingredients",
+    "ingredientNameRequired": "Name required",
+    "ingredientNamePlaceholder": "Ex: Flour",
+    "amountRequired": "Amount required",
+    "amountPlaceholder": "Ex: 500",
+    "validAmount": "Numbers only",
     "preparationPlaceholder": "Preparation steps (optional)...",
-    "tagsPlaceholder": "Tags (e.g: pizza, bread)"
+    "tagsPlaceholder": "Tags (e.g: pizza, bread)",
+    "saveRecipe": "Save recipe",
+    "saving": "Saving...",
+    "error": "Error",
+    "nameRequired": "Name is required",
+    "nameMinLength": "Minimum 3 characters",
+    "atLeastOneIngredient": "Add at least one ingredient",
+    "preparationRequired": "Preparation required",
+    "preparationMinLength": "Minimum 10 characters",
+    "saveError": "Could not save"
   },
   "settings": {
     "title": "Settings",
-    "language": "Language",
-    "theme": "Theme",
+    "language": {
+      "title": "Language",
+      "description": "Choose the app language"
+    },
+    "theme": {
+      "title": "Theme",
+      "description": "Choose the visual theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
     "premium": {
       "title": "RecipeScaler Premium",
-      "subtitle": "Ad-free, forever",
-      "button": "Get Premium"
+      "description": "Remove ads forever",
+      "upgrade": "Get Premium",
+      "active": " Premium active",
+      "success": "Done!",
+      "thankYou": "Thanks for your support"
     },
-    "about": "About"
+    "about": {
+      "title": "About",
+      "version": "Version",
+      "build": "Build",
+      "credits": "Developed with RecipeScaler SDD",
+      "madeWith": "Made with"
+    }
   }
 }

@@ -8,6 +8,7 @@ import {
   Platform,
   Text 
 } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { useRouter } from 'expo-router';
 import { useTheme } from '@/hooks/useTheme';
@@ -39,6 +40,7 @@ export default function CreateScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const addRecipe = useRecipeStore((state) => state.addRecipe);
+  const insets = useSafeAreaInsets();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -125,15 +127,19 @@ export default function CreateScreen() {
   };
 
   return (
-    <KeyboardAvoidingView 
-      style={[styles.container, { backgroundColor: colors.background }]}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
-      <ScrollView 
-        style={styles.scrollView}
-        contentContainerStyle={styles.content}
-        showsVerticalScrollIndicator={false}
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+      <KeyboardAvoidingView 
+        style={styles.keyboardAvoidingView}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
+        <ScrollView 
+          style={styles.scrollView}
+          contentContainerStyle={[
+            styles.content,
+            { paddingTop: insets.top + spacing.md }
+          ]}
+          showsVerticalScrollIndicator={false}
+        >
         {/* Recipe Name */}
         <Controller
           control={control}
@@ -299,12 +305,16 @@ export default function CreateScreen() {
           testID="save-recipe-button"
         />
       </ScrollView>
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  keyboardAvoidingView: {
     flex: 1,
   },
   scrollView: {

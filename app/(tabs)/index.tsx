@@ -6,6 +6,7 @@ import {
   KeyboardAvoidingView, 
   Platform 
 } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTheme } from '@/hooks/useTheme';
 import { useRecipeStore } from '@/store/useRecipeStore';
@@ -25,6 +26,7 @@ export default function HomeScreen() {
   const recipes = useRecipeStore((state) => state.recipes);
   const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
   const [searchQuery, setSearchQuery] = useState('');
+  const insets = useSafeAreaInsets();
 
   // Filter recipes by name in real-time
   const filteredRecipes = useMemo(() => {
@@ -80,20 +82,24 @@ export default function HomeScreen() {
   );
 
   return (
-    <KeyboardAvoidingView 
-      style={[styles.container, { backgroundColor: colors.background }]}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
-      <FlatList
-        data={filteredRecipes}
-        renderItem={renderRecipe}
-        keyExtractor={(item) => item.id}
-        ListHeaderComponent={renderHeader}
-        ListEmptyComponent={renderEmptyState}
-        contentContainerStyle={styles.listContent}
-        showsVerticalScrollIndicator={false}
-        testID="recipe-list"
-      />
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+      <KeyboardAvoidingView 
+        style={styles.keyboardAvoidingView}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <FlatList
+          data={filteredRecipes}
+          renderItem={renderRecipe}
+          keyExtractor={(item) => item.id}
+          ListHeaderComponent={renderHeader}
+          ListEmptyComponent={renderEmptyState}
+          contentContainerStyle={[
+            styles.listContent,
+            { paddingTop: insets.top + spacing.md }
+          ]}
+          showsVerticalScrollIndicator={false}
+          testID="recipe-list"
+        />
       
       {/* Ad Banner - positioned above FAB but below content */}
       {filteredRecipes.length > 0 && (
@@ -108,12 +114,16 @@ export default function HomeScreen() {
         icon="plus"
         testID="create-recipe-fab"
       />
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  keyboardAvoidingView: {
     flex: 1,
   },
   header: {

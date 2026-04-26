@@ -10,6 +10,7 @@ import {
   DMSans_600SemiBold,
 } from '@expo-google-fonts/dm-sans';
 import { View, Text } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { useSettingsStore } from '@/store/useSettingsStore';
 import '@/i18n';
@@ -100,10 +101,30 @@ export default function RootLayout() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaProvider style={{ flex: 1 }}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen 
+          name="recipe/[id]" 
+          options={{ 
+            headerShown: true,
+            title: '',
+            headerBackTitle: '',
+            headerTintColor: '#C84B2F',
+            headerShadowVisible: false
+          }} 
+        />
+        <Stack.Screen 
+          name="recipe/[id]/scale" 
+          options={{ 
+            headerShown: true,
+            title: '',
+            headerBackTitle: '',
+            headerTintColor: '#C84B2F',
+            headerShadowVisible: false
+          }} 
+        />
       </Stack>
-    </View>
+    </SafeAreaProvider>
   );
 }

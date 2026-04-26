@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity 
 } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useTheme } from '@/hooks/useTheme';
 import { useRecipeStore } from '@/store/useRecipeStore';
@@ -28,6 +29,7 @@ export default function ScaleScreen() {
   const { t } = useTranslation();
   const { id } = useLocalSearchParams<{ id: string }>();
   const getRecipeById = useRecipeStore((state) => state.getRecipeById);
+  const insets = useSafeAreaInsets();
   
   const [selectedAnchorId, setSelectedAnchorId] = useState<string>('');
   const [anchorAmount, setAnchorAmount] = useState<string>('');
@@ -76,7 +78,7 @@ export default function ScaleScreen() {
 
   if (!recipe) {
     return (
-      <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
         <View style={styles.notFound}>
           <Text style={[typography.displayMedium, { color: colors.textPrimary }]}>
             {t('recipe.notFound')}
@@ -87,15 +89,18 @@ export default function ScaleScreen() {
             style={styles.goBackButton}
           />
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView 
         style={styles.scrollView}
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[
+          styles.content,
+          { paddingTop: insets.top + spacing.md }
+        ]}
         showsVerticalScrollIndicator={false}
       >
         {/* Header with Recipe Name and Ad Banner */}
@@ -221,7 +226,7 @@ export default function ScaleScreen() {
           </View>
         )}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 

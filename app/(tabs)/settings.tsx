@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity 
 } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '@/hooks/useTheme';
 import { useSettingsStore } from '@/store/useSettingsStore';
 import { useTranslation } from 'react-i18next';
@@ -24,6 +25,7 @@ export default function SettingsScreen() {
   const setLanguage = useSettingsStore((state) => state.setLanguage);
   const setTheme = useSettingsStore((state) => state.setTheme);
   const setPremium = useSettingsStore((state) => state.setPremium);
+  const insets = useSafeAreaInsets();
 
   const handleLanguageChange = (language: 'es' | 'en') => {
     setLanguage(language);
@@ -263,10 +265,13 @@ export default function SettingsScreen() {
   );
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView 
         style={styles.scrollView}
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[
+          styles.content,
+          { paddingTop: insets.top + spacing.md }
+        ]}
         showsVerticalScrollIndicator={false}
       >
         {/* Ad Banner */}
@@ -284,7 +289,7 @@ export default function SettingsScreen() {
         {/* About Section */}
         {renderAboutSection()}
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
