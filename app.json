@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "RecipeScaler",
-    "slug": "RecipeScaler",
+    "slug": "recipe-scaler",
     "version": "1.0.0",
     "scheme": "recipescaler",
     "orientation": "portrait",
@@ -32,6 +32,13 @@
       "expo-font",
       "expo-router",
       "react-native-google-mobile-ads"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "77dc4273-34de-42ec-80f2-83b4f3c7622d"
+      }
+    },
+    "owner": "sethpriedev"
   }
 }
